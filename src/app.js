@@ -23,16 +23,22 @@ loadData(tickers);
 
 // Kui lisatakse uus ticker, siis lisa ta listi, salvesta LSi ja lae uuesti andmed.
 submitNupp.addEventListener('click', e => {
-    const ticker = tickerInput.value.trim();
-    tickers.push(ticker);
-    const tickersUnique = [...new Set(tickers)];
+    const ticker = tickerInput.value.trim().toUpperCase();
+    if (ticker) tickers.push(ticker); // Tühje stringe mitte lisada
+    const tickersUnique = [...new Set(tickers)]; // Kui ticker on olemas, siis ära teda uuesti lisa ehk viska duplikaadid array'st välja
     localStorage.setItem('tickersList', JSON.stringify(tickersUnique));
     loadData(tickers);
     e.preventDefault();
 });
 
+// Kustuta aktsia, mille prügikastil klikiti
 ul.addEventListener('click', e => {
-
+    if (e.target.textContent === 'delete_forever') {
+        e.target.parentElement.parentElement.remove();
+        const eemaldatavAktsia = e.target.parentElement.parentElement.getAttribute('aktsia-symbol'); // Annab aktsia tickeri, mille prügikastil klikiti
+        tickers = tickers.filter(aktsia => aktsia !== eemaldatavAktsia); // Jäta alles vaid mitteeemaldatavad aktsiad
+        localStorage.setItem('tickersList', JSON.stringify(tickers));
+    } 
+    e.preventDefault();
 });
-
 

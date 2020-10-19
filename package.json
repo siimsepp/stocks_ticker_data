@@ -1,10 +1,9 @@
 {
-    "name": "proj_nimi",
+    "name": "stock_market_data",
     "version": "1.0.0",
-    "description": "Starter pack for compiling ES6+ apps to ES5",
+    "description": "Pulls data from Tiingo API and displays modifiable list of stocks, their last price and change from yesterday's close",
     "main": "app.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
         "start": "webpack-dev-server --output-public-path=/build/  --mode development --progress --open --hot",
         "build": "webpack --mode production --progress"
     },

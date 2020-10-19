@@ -6,19 +6,22 @@ class UI {
         data.forEach(elem => {
             // console.log(elem);
             const protsMuutusEilsest = ((elem.last - elem.prevClose) / elem.prevClose * 100).toFixed(2);
-            html += `<li class="collection-item avatar">
+            html += `<li class="collection-item avatar" aktsia-symbol="${elem.ticker}">
                     <i class="material-icons circle red">play_arrow</i>
                     <span class="title">Aktsia: ${elem.ticker}</span>
+
                     <p>Viimane hind: ${elem.last} <br>
                         Muutus eilsest sulgemisest: ${protsMuutusEilsest}%
                     </p>
-                    <i class="material-icons">delete_forever</i>
+                    
+                    <a href="#!" class="secondary-content"><i class="medium material-icons">delete_forever</i></a>
                     
                     </li>`;
         });
         ul.innerHTML = html;
     }
 }
+
 
 export default UI;
 
