@@ -27,6 +27,8 @@ submitNupp.addEventListener('click', e => {
     if (ticker) tickers.push(ticker); // Tühje stringe mitte lisada
     const tickersUnique = [...new Set(tickers)]; // Kui ticker on olemas, siis ära teda uuesti lisa ehk viska duplikaadid array'st välja
     localStorage.setItem('tickersList', JSON.stringify(tickersUnique));
+    tickerInput.value = '';
+    document.focus();
     loadData(tickers);
     e.preventDefault();
 });
