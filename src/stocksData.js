@@ -6,7 +6,6 @@ class StockData {
     async getData(tickers) {
         try {
             const response = await fetch(`${corsAnywhere}https://api.tiingo.com/iex/?tickers=${tickers.join(',')}&token=${token}`);
-            console.log(`${corsAnywhere}https://api.tiingo.com/iex/?tickers=${tickers.join(',')}&token=${token}`);
             return await response.json();
         } catch (error) {
             console.log(error);
