@@ -4,7 +4,6 @@ class UI {
         const ul = document.querySelector('#ul');
         let html = '';
         data.forEach(elem => {
-            // console.log(elem);
             const protsMuutusEilsest = ((elem.last - elem.prevClose) / elem.prevClose * 100).toFixed(2);
             html += `<li class="collection-item avatar" aktsia-symbol="${elem.ticker}">
                     <i class="material-icons medium green-text">monetization_on</i>
