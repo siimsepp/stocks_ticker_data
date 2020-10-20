@@ -7,14 +7,13 @@ class UI {
             // console.log(elem);
             const protsMuutusEilsest = ((elem.last - elem.prevClose) / elem.prevClose * 100).toFixed(2);
             html += `<li class="collection-item avatar" aktsia-symbol="${elem.ticker}">
-                    <i class="material-icons circle red">play_arrow</i>
-                    <span class="title">Aktsia: ${elem.ticker}</span>
-
+                    <i class="material-icons medium green-text">monetization_on</i>
+                    <span class="title">Aktsia: <b><span style="color:blue">${elem.ticker}</span></b></span>
                     <p>Viimane hind: ${elem.last} <br>
-                        Muutus eilsest sulgemisest: ${protsMuutusEilsest}%
+                        Muutus eilsest sulgemisest: <b><span style="color:${protsMuutusEilsest > 0 ? 'green' : 'red'}">${protsMuutusEilsest}%</span></b>
                     </p>
                     
-                    <a href="#!" class="secondary-content"><i class="medium material-icons">delete_forever</i></a>
+                    <a href="#!" class="secondary-content"><i class="medium material-icons orange-text">delete_forever</i></a>
                     
                     </li>`;
         });
